@@ -4,6 +4,9 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 
 import examen.utils.Apariencia;
+import examen.view.PanelClasificacion;
+import examen.view.PanelDatosSocio;
+import examen.view.PanelSociosEquipo;
 
 public class Principal extends JFrame {
 
@@ -26,6 +29,15 @@ public class Principal extends JFrame {
 		
 		JTabbedPane jtp = new JTabbedPane();
 		
+		PanelDatosSocio panelDatosSocio = new PanelDatosSocio();
+		PanelSociosEquipo panelSociosEquipo = new PanelSociosEquipo();
+		PanelClasificacion panelClasificacion = new PanelClasificacion();
+		
+		jtp.addTab("Datos del Socio", panelDatosSocio);
+		jtp.addTab("Socios por Equipo", panelSociosEquipo);
+		jtp.addTab("Clasificación", panelClasificacion);
+		
+		this.getContentPane().add(jtp);
 	}
 	
 	/**

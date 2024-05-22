@@ -32,7 +32,7 @@ public class SuperControladorJPA {
 	 */
 	protected EntityManager getEntityManager () {
 		if (em == null) {
-			em = Persistence.createEntityManagerFactory("bankonterSupervitaminado")
+			em = Persistence.createEntityManagerFactory("20240521-Examen-Final-JPA")
 				.createEntityManager();
 		}
 		return em;
@@ -138,6 +138,23 @@ public class SuperControladorJPA {
 			ex.printStackTrace();
 		}
 		return null;
+	}
+	
+	/**
+	 * 
+	 * @param tableColumn
+	 * @param tableColumnOrder
+	 * @param id
+	 * @return
+	 */
+	public List<? extends Entidad> findByOrderBy (
+			String tableColumn, String tableColumnOrder, int id) {
+		
+		String sql = "SELECT * FROM " + this.nombreTabla + " WHERE " 
+				+ tableColumn + " = " + id + " ORDER BY " + tableColumnOrder;
+		Query query = getEntityManager().createNativeQuery(sql, this.tipoEntidad);
+        
+        return query.getResultList();
 	}
 	
 	
